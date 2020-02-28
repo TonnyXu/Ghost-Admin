@@ -14,6 +14,8 @@ export default Component.extend({
 
     defaultContentVisibility: reads('settings.defaultContentVisibility'),
 
+    mailDomain: computed.or('config.mail.domain', 'blogDomain'),
+
     mailgunRegion: computed('settings.bulkEmailSettings.baseUrl', function () {
         if (!this.settings.get('bulkEmailSettings.baseUrl')) {
             return US;
